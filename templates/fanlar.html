@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fanlar ro'yxati</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6
+        }
+         h2 {
+            color: blue;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+  <h1>Fanlar ro'yxati</h1>
+  <a style = "text-decoration: none" href = '/home/'>Bosh sahifa</a>
+  <hr>
+  {% for fan in fanlar %}
+  <p>{{ forloop.counter }}.
+      <a style = "text-decoration: none" href = "/fanlar/{{fan.id}}/">
+        {{ fan.nom }}
+      </a>
+      <button style ='padding: 10px'>
+          <a style = "text-decoration: none" href = '/fan/{{fan.id}}/delete/'>O'chirish</a>
+      </button>
+      <button style ='padding: 10px'>
+          <a style = "text-decoration: none" href = '/fan/{{fan.id}}/update/'>Tahrirlash</a>
+      </button>
+  </p>
+  {% endfor %}
+</body>
+</html>

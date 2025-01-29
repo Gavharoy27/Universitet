@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ustozlar ro'yxati</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6
+        }
+         h2 {
+            color: blue;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+  <h1>Ustozlar ro'yxati</h1>
+  <a style = "text-decoration: none" href = '/home/'>Bosh sahifa</a>
+  <hr>
+  {% for ustoz in ustozlar %}
+  <p>{{ forloop.counter }}.
+    <a style = "text-decoration: none" href = '/ustozlar/{{ustoz.id}}'>
+      {{ustoz.ism}}
+    </a>
+    <button >
+      <a style = "text-decoration: none" href = '/ustoz/{{ustoz.id}}/delete/'>O'chirish</a>
+    </button>
+    <button>
+      <a style = "text-decoration: none" href = '/ustoz/{{ustoz.id}}/update/'>Tahrirlash</a>
+    </button>
+  </p>
+  {% endfor %}
+</body>
+</html>

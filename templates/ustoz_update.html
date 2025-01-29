@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ustoz | Tahrirlash</title>
+</head>
+<body>
+  <h1>{{ustoz.ism}}ni tahrirlash</h1>
+  <hr>
+  <form method = 'post'>
+      {% csrf_token %}
+    <label>Ism</label>
+      <input type="text" name="ism" value="{{ustoz.ism}}" id="ism">
+      <br><br>
+    <label>Fan</label>
+      <select name="fan_id" id="fan">
+          <option value="{{ustoz.fan.id}}">{{ustoz.fan.nom}}</option>
+          {% for fan in fanlar %}
+          {% if fan != ustoz.fan %}
+          <option value="{{fan.id}}">{{fan.nom}}</option>
+          {% endif %}
+          {% endfor %}e
+      </select>
+      <br><br>
+    <label>Yosh</label>
+      <input type="number" name="yosh" value="{{ustoz.yosh}}" id="yosh">
+      <br><br>
+    <label>Jins</label>
+     <select name = 'jins'>
+        <option>{{ustoz.jins}}</option>
+        <option>
+            {% if ustoz.jins == 'Erkak' %}
+            Ayol
+            {% else %}
+            Erkak
+            {% endif %}
+        </option>
+    </select>
+      <a href="/ustozlar/">
+          <button type="button">Bekor qilish</button>
+      </a>
+      <button type="submit">Tasdiqlash</button>
+  </form>
+</body>
+</html>

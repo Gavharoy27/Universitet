@@ -35,4 +35,4 @@ class Ustoz(models.Model):
         verbose_name_plural = 'Ustozlar'
  
     def __str__(self):
-        return self.ism
+        return f"{self.ism} {self.fan}
